@@ -34,7 +34,7 @@ class Database:
             data = file.readlines()
             for line in data:
                 print(line)
-                if str(self.user_id) in line:
+                if str(1737841515) in line:
                     channels = line.split(",")
                     response = []
                     for data in channels:
@@ -43,20 +43,16 @@ class Database:
                             response.append(data.split('-')[-1])
                     return response
 
-
     def add_data(self, data):
         file_path = "utils/db_api/database.txt"
         with open(file_path, "r+") as file:
             db = file.readlines()
             new_db = ""
             for line in db:
-                print(line)
                 if str(self.user_id) in line:
-                    print(line, 123456789)
                     line = line[:-1] + "," + data
                     new_db += (line + "\n")
                 else:
-                    print(line, 987654321)
                     new_db += line
             os.remove(file_path)
             with open(file_path, "w") as files:
